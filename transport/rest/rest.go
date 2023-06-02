@@ -34,10 +34,11 @@ func NewRest(o *Options) *Handler {
 	r := mux.NewRouter()
 
 	r.Path("/health").HandlerFunc(handlerImpl.HealthCheck)
+	r.Path("/").HandlerFunc(handlerImpl.RouteIndex)
 
 	v1 := r.PathPrefix("/v1").Subrouter()
 
-	groupV1.NewUploadV1(v1, handlerImpl)
+	groupV1.NewVideosV1(v1, handlerImpl)
 
 	o.Mux = r
 

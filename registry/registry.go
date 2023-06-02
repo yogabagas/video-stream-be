@@ -21,6 +21,6 @@ func NewRegistry(opts ...Option) Registry {
 
 func (m *module) NewAppController() controller.AppController {
 	return controller.AppController{
-		UploadController: m.NewUploadController(),
+		VideosController: m.NewVideosController(),
 	}
 }
